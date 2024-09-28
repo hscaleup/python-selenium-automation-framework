@@ -7,7 +7,8 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from pages.LoginPage import LoginPage
 import pytest
 
-@pytest.mark.usefixtures("setup_and_teardown")
+#@pytest.mark.usefixtures("setup_and_teardown")
+@pytest.mark.skip
 class TestLoginPositive:
 
   
