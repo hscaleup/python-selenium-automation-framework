@@ -11,18 +11,18 @@ import unittest
 
 
 @pytest.mark.usefixtures("setup_and_teardown")
+@pytest.mark.testcsv
 @ddt
-class TestLoginMultiple:
+class TestLoginMultiple(unittest.TestCase):
 
-    #@data(*ReadConfigurations.read_data_from_csv("C:\\Users\\44745\\workspace\\python-selenium-automation-framework\\testdata\\input.csv"))
-    
-    @data(("student","test"))
+    @data(*ReadConfigurations.read_data_from_csv("C:\\Users\\44745\\workspace\\python-selenium-automation-framework\\testdata\\input.csv"))
+    #@data(("student","test"))
     @unpack
-    def test_login_scenario(self, user, pwd):
+    def test_login_scenario(self,user,pwd):
         login_page= LoginPage(self.driver)
-        login_page.enter_username("student")
+        login_page.enter_username(user)
         time.sleep(5)
-        login_page.enter_password("test")
+        login_page.enter_password(pwd)
 
         time.sleep(5)
         login_page.click_on_submit_button()
